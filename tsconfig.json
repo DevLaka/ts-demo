@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "allowJs": true,
+    // Allow JS files to be a part of the program.
+    // Use the checkJS option to get errors from JS files.
+    // TS can be add to an existing JS App.
+    // TS is a super set of JS, which means that all JS is valid TS.
+
+    "checkJs": true,
+    // Enable error reporting in JavaScript files.
+
     "outDir": "build",
     "target": "ES6",
     // If only using TS to type checking and rely on another tool,
