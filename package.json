@@ -18,5 +18,8 @@
   "homepage": "https://github.com/DevLaka/ts-demo#readme",
   "devDependencies": {
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.19"
   }
 }

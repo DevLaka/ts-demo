@@ -11,6 +11,8 @@ async function getContact(contactId) {
   // TS doesn't know jQuery types.
   // Error : Cannot find name '$'. Do you need to install type definitions for jQuery?
   // Try `npm i --save-dev @types/jquery`
+  // Fixed -- downloaded open source type definition for jQuery
+  // Now, it has auto complete and inline documentation as well.
   const resp = await $.ajax({
     url: `/contacts/${contactId}`,
     dataType: "json",
