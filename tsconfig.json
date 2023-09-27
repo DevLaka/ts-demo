@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "target": "ES6",
+    // If only using TS to type checking and rely on another tool,
+    // such as the Babel compiler to transpile the final output,
+    // esnext is a better option.
+    // Esnext tells TS to emit code that of latest version of JS,
+    // and pass the rest of the code onto the other tools.
+
+    "noEmit": true
+    // If only using TS to type checking, setting the noEmit to true, won't
+    // generate any JS files.
+  },
+  "include": ["src/**/*"]
+}
