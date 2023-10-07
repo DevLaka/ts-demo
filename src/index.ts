@@ -77,3 +77,73 @@ let car1: Car = {
   model: "Nissan",
   status: vehicleStatus.NEW,
 };
+
+// Typing functions
+interface Human {
+  name: string;
+  age: number;
+
+  // Defining a method in a interface
+  clone(name: string): Human;
+}
+
+function cloneHuman(source: Human, func: (source: Human) => Human): Human {
+  return Object.apply({}, source);
+}
+
+// Generics
+function cloneWithGenerics<T>(source: T): T {
+  return Object.apply({}, source);
+}
+
+const tv = cloneWithGenerics({ model: "LG", size: 32 });
+
+// Multiple generic parameters
+function cloneWithMultipleGenerics<T1, T2>(source: T1): T2 {
+  return Object.apply({}, source);
+}
+
+// Calling a function with multiple generic parameters
+const g = cloneWithMultipleGenerics<Car, Date>({
+  model: "VX",
+  status: vehicleStatus.NEW,
+});
+
+// In TS, you can use generic constraints to impose rules on the types that can
+// be used as generic parameters in your functions. For instance, you can ensure
+// that the return type of a method matches the input type by using the
+// extends keyword. This means you can supply any type as the second generic
+// parameter as long as it matches the properties of the first type parameter.
+// It's not necessary for the second type to extend or derive from the first;
+// it just needs to have matching properties. For example, you can create a new
+// interface that shares the same properties as another type, and it will satisfy
+// the extends constraint. This allows you to make your generic functions more
+// specific and enforce type compatibility. See code example below.
+
+interface Animal {
+  name: string;
+}
+
+interface Cat {
+  name: string;
+  noOfLivesRemaining: number;
+}
+
+function cloneAgain<T1, T2 extends T1>(source: T1): T2 {
+  return Object.apply({}, source);
+}
+
+const animal1: Animal = { name: "garfield" };
+const cat1 = cloneAgain<Animal, Cat>(animal1);
+
+// Generics in TS are not limited to functions; they can also be applied to
+// interfaces and classes. A generic type can be used within the interface for
+// specifying property types or as generic parameters for other interfaces.
+// See code example below.
+
+interface Dog<TExternalId> {
+  name: string;
+  age: number;
+  externalId: TExternalId;
+  loadExternalId(): Task<TExternalId>;
+}
